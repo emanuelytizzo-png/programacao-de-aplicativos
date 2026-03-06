@@ -1,0 +1,1 @@
+comprimento_da_peca = input("o comprimento da peça ") 
