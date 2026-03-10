@@ -14,7 +14,7 @@ velocidade_do_vennto = float (input("digite a velocidade do vento (K/m): "))
 
 if bateria < 10: 
     print("EMERGENCIA: pouse imediatamente!")
-elif bateria >=10 and clima == "ensolarado" and (velocidade_do_vennto 30 or  clima chuvosd velocidade_do_vento < 18: 
+elif bateria >=10 and clima == "ensolarado" and (velocidade_do_vennto 30 or  clima chuvosd velocidade_do_vento < 18: ) 
     print("POUSO ALTORIZADO: iniciando decida") 
 else:
     print("POUSO NEGADO: condições meterelogicas perigosas. Aguarde em orbita: ")
