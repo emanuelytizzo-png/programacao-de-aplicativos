@@ -6,3 +6,4 @@ elif numero < 0:
 else:
     print("O número é zero.")
     
+    
