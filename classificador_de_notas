@@ -1,0 +1,26 @@
+def avaliar_desempenho(nota):
+    """
+    Avalia o desempenho com base na nota (0 a 10).
+    """
+    if nota >= 9:
+        return "Excelente"
+    elif nota >= 7:
+        return "Bom"
+    elif nota > 5:
+        return "Regular"
+    else:
+        return "Insuficiente"
+
+try:
+    entrada = input("Digite a nota do aluno (0 a 10): ")
+    nota_usuario = float(entrada)
+
+    if 0 <= nota_usuario <= 10:
+        resultado = avaliar_desempenho(nota_usuario)
+
+        print(f"Desempenho: {resultado}")
+    else:
+        print("Erro: A nota deve ser entre 0 e 10.")
+
+except ValueError:
+    print("Erro: Por favor, digite um número válido.")                                                                                                                                                                                                                                                                                                                                 
