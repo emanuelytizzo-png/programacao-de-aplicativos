@@ -29,3 +29,4 @@ if __name__ == "__main__":
     resultado = gerar_relatorio_saude(nome, peso, altura, idade)
     print("\n--- Relatório de Saúde ---")
     print(resultado)
+    

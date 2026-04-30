@@ -15,4 +15,4 @@ carrinho = [150.00, 230.50, 50.00, 100.00]
 valor_final = somar_carrinho(carrinho)
 
 print(f"Lista de produtos: {carrinho}")
-print(f"O valor final a ser pago é: R$ {valor_final:.2f}")
+print(f"O valor final a ser pago é: R$ {valor_final:.2f}")    
