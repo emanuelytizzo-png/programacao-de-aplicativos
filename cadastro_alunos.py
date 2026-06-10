@@ -1,33 +1,28 @@
 import sqlite3
 
-nome = input("Digite o nome completo do aluno: ")
-telefone = input("Digite o telefone: ")
-turma = input("Digite a turma: ")
-idade = input("Digite a idade: ")
-cpf = input("Digite o CPF: ")
+try:
+    nome = input("Digite o nome completo do aluno: ")
+    telefone = input("Digite o telefone: ")
+    turma = input("Digite a turma: ")
+    idade = int(input("Digite a idade: "))
+    cpf = input("Digite o CPF: ")
 
-conexao = sqlite3.connect("escola_demonstracao.db")
-cursor = conexao.cursor()
+    conexao = sqlite3.connect("escola_demonstracao.db")
+    cursor = conexao.cursor()
+     sql = f"""
+    INSERT INTO alunos (nome_completo, telefone, turma, idade, cpf)
+    VALUES ('{nome}', '{telefone}', '{turma}', {idade}, '{cpf}');
+    ('{nome}', '{telefone}', '{turma}', {idade}, '{cpf}');
+    """
 
-sql = f"""
-insert into alunos (nome_completo, telefone, turma, idade, cpf)
-values ('{nome}', '{telefone}', '{turma}', {idade}, '{cpf}')
-"""
+    cursor.execute(sql)
+    conexao.commit()
 
-cursor.execute(sql)
+    print("Aluno cadastrado com sucesso!")
 
-conexao.commit()
-conexao.close()
+    conexao.close()
 
- print(f"\n[SUCESSO] Aluno(a) {nome_completo} cadastrado com sucesso!")
-
-except sqlite3.Error as erro:
-    print(f"\n[ERRO] Falha ao inserir no banco de dados: {erro}")
-
-finally:
-
-    if conexao:
-        conexao.close()
-        print("[AVISO] Conexão com o banco de dados fechada com segurança.")
-
+except Exception as e:
+    print(f"Houve um erro ao cadastrar o aluno: {e}")
+    
 
