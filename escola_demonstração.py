@@ -1,4 +1,4 @@
-import sqlite3import sqlite3
+import sqlite3
 
 conexao = sqlite3.connect("escola_demonstracao.db")
 cursor = conexao.cursor()
@@ -17,8 +17,7 @@ def criar_tabela():
     )
     """)
     conexao.commit()
-
-def criar_professor():
+    def criar_professor():
     nome = input("Nome Completo: ")
     telefone = input("Telefone: ")
     materia = input("Matéria: ")
@@ -32,17 +31,6 @@ def criar_professor():
     (nome_completo, telefone, materia, idade, cpf, salario, nome_escola)
     VALUES (?, ?, ?, ?, ?, ?, ?)
     """, (nome, telefone, materia, idade, cpf, salario, escola))
-
-    conexao.commit()
-    print("Professor cadastrado com sucesso!\n") 
-
- conexao = sqlite3.connect(BANCO_DADOS)
-    cursor = conexao.cursor()
-
-    comando = f'''
-        INSERT INTO alunos (nome, telefone, turma, idade, cpf, id_professor)
-        VALUES ('{nome}', '{telefone}', '{turma}', {idade}, '{cpf}', {id_professor})
-    '''
 
     cursor.execute(comando)
     conexao.commit()
@@ -72,7 +60,7 @@ def atualizar():
     conexao = sqlite3.connect(BANCO_DADOS)
     cursor = conexao.cursor()
 
- cursor.execute(f"SELECT * FROM alunos WHERE id = {id_busca}")
+  cursor.execute(f"SELECT * FROM alunos WHERE id = {id_busca}")
     aluno = cursor.fetchone() 
 
     if not aluno:
@@ -90,7 +78,7 @@ def atualizar():
 
     comando = f'''
         UPDATE alunos 
-        SET nome = '{novo_nome}', telefone = '{novo_telefone}', turma = '{nova_turma}', 
+        SET nome = '{novo_nome}', telefone = '{novo_tel}', turma = '{nova_turma}', 
             idade = {nova_idade}, cpf = '{novo_cpf}', id_professor = {novo_id_professor}
         WHERE id = {id_busca}
     '''
@@ -104,7 +92,7 @@ def excluir():
     id_busca = int(input("Digite o ID do aluno que deseja remover: "))
 
     conexao = sqlite3.connect(BANCO_DADOS)
-    cursor = conexao.cursor() 
+    cursor = conexao.cursor()
 
 comando = f"DELETE FROM alunos WHERE id = {id_busca}"
     
@@ -113,6 +101,7 @@ comando = f"DELETE FROM alunos WHERE id = {id_busca}"
 
     conexao.close()
 
+# --- MENU PRINCIPAL ---
 def menu():
     conexao = sqlite3.connect(BANCO_DADOS)
     cursor = conexao.cursor()
