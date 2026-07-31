@@ -14,6 +14,7 @@ def inserir_escola(nome):
 # conflitos de acesso e dificuldade para gerenciar o banco de dados.
 
 Correção do código:
+
 import sqlite3
 
 def inserir_escola(nome):
